@@ -74,7 +74,9 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <div className="hidden lg:block">
-          <Link className="btn btn-secondary border-0 bg-[#FF6224]">Login</Link>
+          <Link className="btn btn-secondary border-0 text-[#3B4051] font-bold bg-[#FF6224]">
+            Login
+          </Link>
         </div>
       </div>
     </div>
