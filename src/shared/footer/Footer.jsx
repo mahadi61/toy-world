@@ -1,8 +1,16 @@
 import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import logo from "../../assets/logo-01.png";
 
 const Footer = () => {
+  const handleSendMessage = () => {
+    Swal.fire(
+      "Your message send!",
+      "We will contact with you very soon!",
+      "success"
+    );
+  };
   return (
     <footer className="footer  p-10 bg-[#c7e8f3] text-black">
       <div>
@@ -27,7 +35,10 @@ const Footer = () => {
               placeholder="Enter your email"
               className="input input-bordered"
             />
-            <button className="btn btn-outline hover:border-white hover:bg-orange-400">
+            <button
+              onClick={handleSendMessage}
+              className="btn btn-outline hover:border-white hover:bg-orange-400"
+            >
               Send
             </button>
           </label>
@@ -43,7 +54,6 @@ const Footer = () => {
           <BsInstagram /> Instagram
         </Link>
         <Link className="text-2xl flex items-center gap-2">
-          {" "}
           <BsTwitter />
           Twitter
         </Link>
