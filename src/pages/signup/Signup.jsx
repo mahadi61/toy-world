@@ -1,23 +1,34 @@
 import Lottie from "lottie-react";
 import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import car from "../../assets/animation/car-in-movement.json";
+
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Signup = () => {
   const [error, setError] = useState("");
-
-  const { singUpWithEmail, googleLogin } = useContext(AuthContext);
-
+  const { singUpWithEmail, googleLogin, profileUpdate, setObserverState } =
+    useContext(AuthContext);
+  const navigate = useNavigate();
   const handleGoogleSignIn = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        if (user) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Sign up Successful",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+          navigate("/");
+        }
       })
       .catch((error) => {
-        console.log(error);
+        setError(error?.message);
       });
   };
 
@@ -26,13 +37,33 @@ const Signup = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    const name = form.name.value;
+    const photo = form.photo.value;
+
     if (password.length < 6) {
-      return setError("Password must be six character.");
+      return setError("Password should be at least 8 characters");
     }
     singUpWithEmail(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        if (user) {
+          profileUpdate(name, photo)
+            .then(() => {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Sign up Successful",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+              setObserverState(new Date().getTime());
+              navigate("/");
+            })
+            .catch((error) => {
+              setError(error?.message);
+            });
+        }
+        setError("");
         form.reset();
       })
       .catch((error) => {
@@ -48,6 +79,8 @@ const Signup = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm ">
             <div className="card-body">
+              <h2 className="text-center font-bold text-3xl">Sign Up Now</h2>
+
               <form onSubmit={handleSingUp}>
                 <div className="form-control">
                   <label className="label">
@@ -115,10 +148,11 @@ const Signup = () => {
             <div className="text-center">
               <h5>
                 Already have an account?
-                <Link to="/register" className="underline">
+                <Link to="/login" className="underline">
                   Login Now!
                 </Link>
               </h5>
+              <div className="divider">or</div>
               <p className="mt-3 font-medium">SignUp With</p>
               <button onClick={handleGoogleSignIn} className="text-3xl mt-4">
                 <FcGoogle />

@@ -12,7 +12,7 @@ const Footer = () => {
     );
   };
   return (
-    <div className="bg-[#c7e8f3] text-black">
+    <div className=" bg-gradient-to-r from-[#538FFB] to-[#5B54FA] text-black">
       <footer className="footer  p-10 ">
         <div>
           <img className="w-44" src={logo} alt="" />

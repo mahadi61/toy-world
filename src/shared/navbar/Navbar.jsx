@@ -1,12 +1,14 @@
 import { useContext } from "react";
+import { GoThreeBars } from "react-icons/go";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import logo from "../../assets/logo-01.png";
 import { AuthContext } from "../../provider/AuthProvider";
-
+import "./Navbar.css";
 const Navbar = () => {
   const { user, logOut, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  // console.log(user);
 
   const handleLogOut = () => {
     logOut()
@@ -33,24 +35,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-[#22d3eea9]">
+    <nav className="navbar bg-gradient-to-r from-[#FED54A]  to-[#FF9347] ">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+          <label tabIndex={0} className=" text-4xl lg:hidden">
+            <GoThreeBars />
           </label>
           <ul
             tabIndex={0}
@@ -72,10 +61,18 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link className="text-[#3B4051] text-xl">My Toys</Link>
+              {user && (
+                <Link to="/my-toys" className="text-[#3B4051] text-xl">
+                  My Toys
+                </Link>
+              )}
             </li>
             <li>
-              <Link className="text-[#3B4051] text-xl">Add A Toy</Link>
+              {user && (
+                <Link to="/add-toy" className="text-[#3B4051] text-xl">
+                  Add A Toy
+                </Link>
+              )}
             </li>
             <li>
               {user ? (
@@ -121,10 +118,10 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link className="text-[#3B4051] text-xl">My Toys</Link>
+            {user && <Link className="text-[#3B4051] text-xl">My Toys</Link>}
           </li>
           <li>
-            <Link className="text-[#3B4051] text-xl">Add A Toy</Link>
+            {user && <Link className="text-[#3B4051] text-xl">Add A Toy</Link>}
           </li>
         </ul>
       </div>
@@ -132,12 +129,17 @@ const Navbar = () => {
         <div className="hidden  lg:block">
           <div className="flex items-center">
             {user && (
-              <img
-                className="rounded-full mx-2"
-                style={{ height: "40px", width: "40px" }}
-                src={user?.photoURL}
-                alt="user image"
-              />
+              <div
+                className="tooltip tooltip-bottom"
+                data-tip={user?.displayName}
+              >
+                <img
+                  className="rounded-full mx-2"
+                  style={{ height: "40px", width: "40px" }}
+                  src={user?.photoURL}
+                  alt="user image"
+                />
+              </div>
             )}
             {user ? (
               <button
@@ -157,7 +159,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

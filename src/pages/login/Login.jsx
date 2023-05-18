@@ -7,7 +7,8 @@ import car from "../../assets/animation/car-safety.json";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
-  const { signInWithEmail, googleLogin } = useContext(AuthContext);
+  const { signInWithEmail, googleLogin, setObserverState } =
+    useContext(AuthContext);
   const [error, setError] = useState("");
 
   //   login with email and password
@@ -47,6 +48,7 @@ const Login = () => {
             timer: 2000,
           });
         }
+        setObserverState(new Date().getTime());
       })
       .catch((error) => {
         console.log(error);
@@ -61,6 +63,7 @@ const Login = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm ">
             <div className="card-body">
+              <h2 className="text-center font-bold text-3xl">Login Now</h2>
               <form onSubmit={handleLogin}>
                 <div className="form-control">
                   <label className="label">
@@ -108,6 +111,7 @@ const Login = () => {
                   Register Here!
                 </Link>
               </h5>
+              <div className="divider">or</div>
               <p className="mt-3 font-medium">Login With</p>
               <button onClick={handleGoogleSignIn} className="text-3xl mt-4">
                 <FcGoogle />
