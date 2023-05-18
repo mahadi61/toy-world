@@ -1,11 +1,13 @@
 import Lottie from "lottie-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import car from "../../assets/animation/car-safety.json";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
   const [error, setError] = useState("");
+  const { singUpWithEmail } = useContext(AuthContext);
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;

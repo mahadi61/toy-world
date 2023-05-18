@@ -1,22 +1,43 @@
 import Lottie from "lottie-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import car from "../../assets/animation/car-in-movement.json";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Signup = () => {
   const [error, setError] = useState("");
+
+  const { singUpWithEmail, googleLogin } = useContext(AuthContext);
+
+  const hadnleGoogleSignIn = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const handleSingUp = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
     if (password.length < 6) {
       return setError("Password must be six character.");
     }
-
-    form.reset();
+    singUpWithEmail(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
   };
   return (
     <div>
@@ -99,7 +120,7 @@ const Signup = () => {
                 </Link>
               </h5>
               <p className="mt-3 font-medium">SignUp With</p>
-              <button className="text-3xl mt-4">
+              <button onClick={hadnleGoogleSignIn} className="text-3xl mt-4">
                 <FcGoogle />
               </button>
             </div>
