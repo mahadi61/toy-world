@@ -2,12 +2,15 @@ import Lottie from "lottie-react";
 import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import car from "../../assets/animation/car-safety.json";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
+  const { signInWithEmail, googleLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
-  const { signInWithEmail } = useContext(AuthContext);
+
+  //   login with email and password
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -25,10 +28,30 @@ const Login = () => {
         form.reset();
       })
       .catch((error) => {
-        console.log(error);
+        setError(error.message);
       });
   };
 
+  //   login with google
+
+  const handleGoogleSignIn = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+        if (user) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Login Successful",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div>
       <div className="hero min-h-screen ">
@@ -86,7 +109,7 @@ const Login = () => {
                 </Link>
               </h5>
               <p className="mt-3 font-medium">Login With</p>
-              <button className="text-3xl mt-4">
+              <button onClick={handleGoogleSignIn} className="text-3xl mt-4">
                 <FcGoogle />
               </button>
             </div>

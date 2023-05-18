@@ -1,11 +1,36 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import logo from "../../assets/logo-01.png";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
+  const { user, logOut, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Logout Successful",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        setUser(null);
+        navigate("/");
+      })
+      .catch((error) => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: `${error.message}`,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      });
+  };
 
   return (
     <div className="navbar bg-[#22d3eea9]">
@@ -53,9 +78,21 @@ const Navbar = () => {
               <Link className="text-[#3B4051] text-xl">Add A Toy</Link>
             </li>
             <li>
-              <Link to="/login" className="btn text-white">
-                Login
-              </Link>
+              {user ? (
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-secondary border-0 text-white font-bold bg-[#05058a]"
+                >
+                  Logout
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  className="btn btn-secondary border-0 text-white font-bold bg-[#05058a]"
+                >
+                  Login
+                </Link>
+              )}
             </li>
           </ul>
         </div>
@@ -92,19 +129,32 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <div className="hidden lg:block">
-          {user ? (
-            <button className="btn btn-secondary border-0 text-white font-bold bg-[#05058a]">
-              Logout
-            </button>
-          ) : (
-            <Link
-              to="/login"
-              className="btn btn-secondary border-0 text-white font-bold bg-[#05058a]"
-            >
-              Login
-            </Link>
-          )}
+        <div className="hidden  lg:block">
+          <div className="flex items-center">
+            {user && (
+              <img
+                className="rounded-full mx-2"
+                style={{ height: "40px", width: "40px" }}
+                src={user?.photoURL}
+                alt="user image"
+              />
+            )}
+            {user ? (
+              <button
+                onClick={handleLogOut}
+                className="btn btn-secondary border-0 text-white font-bold bg-[#05058a]"
+              >
+                Logout
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                className="btn btn-secondary border-0 text-white font-bold bg-[#05058a]"
+              >
+                Login
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </div>
