@@ -12,6 +12,9 @@ const Signup = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    if (password.length < 6) {
+      return setError("Password must be six character.");
+    }
 
     form.reset();
   };
@@ -82,7 +85,7 @@ const Signup = () => {
                 <div className="form-control mt-3">
                   <input
                     type="submit"
-                    value="Login"
+                    value="SignUp"
                     className="btn btn-primary bg-[#05058a]"
                   />
                 </div>

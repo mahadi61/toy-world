@@ -12,6 +12,9 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    if (password.length < 6) {
+      return setError("Password must be six character.");
+    }
 
     form.reset();
   };
