@@ -7,7 +7,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { singUpWithEmail } = useContext(AuthContext);
+  const { signInWithEmail } = useContext(AuthContext);
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -17,8 +17,16 @@ const Login = () => {
     if (password.length < 6) {
       return setError("Password must be six character.");
     }
+    signInWithEmail(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
 
-    form.reset();
+        form.reset();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

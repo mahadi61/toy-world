@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo-01.png";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
+
   return (
     <div className="navbar bg-[#22d3eea9]">
       <div className="navbar-start">
@@ -88,12 +93,18 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <div className="hidden lg:block">
-          <Link
-            to="/login"
-            className="btn btn-secondary border-0 text-white font-bold bg-[#05058a]"
-          >
-            Login
-          </Link>
+          {user ? (
+            <button className="btn btn-secondary border-0 text-white font-bold bg-[#05058a]">
+              Logout
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="btn btn-secondary border-0 text-white font-bold bg-[#05058a]"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

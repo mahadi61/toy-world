@@ -10,7 +10,7 @@ const Signup = () => {
 
   const { singUpWithEmail, googleLogin } = useContext(AuthContext);
 
-  const hadnleGoogleSignIn = () => {
+  const handleGoogleSignIn = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
@@ -120,7 +120,7 @@ const Signup = () => {
                 </Link>
               </h5>
               <p className="mt-3 font-medium">SignUp With</p>
-              <button onClick={hadnleGoogleSignIn} className="text-3xl mt-4">
+              <button onClick={handleGoogleSignIn} className="text-3xl mt-4">
                 <FcGoogle />
               </button>
             </div>
