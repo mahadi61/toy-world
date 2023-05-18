@@ -27,13 +27,19 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link className="text-[#3B4051] text-xl">Home</Link>
+              <Link to="/" className="text-[#3B4051] text-xl">
+                Home
+              </Link>
             </li>
             <li>
-              <Link className="text-[#3B4051] text-xl">All Toys</Link>
+              <Link to="/all-toys" className="text-[#3B4051] text-xl">
+                All Toys
+              </Link>
             </li>
             <li>
-              <Link className="text-[#3B4051] text-xl">Blogs</Link>
+              <Link to="/blogs" className="text-[#3B4051] text-xl">
+                Blogs
+              </Link>
             </li>
             <li>
               <Link className="text-[#3B4051] text-xl">My Toys</Link>
@@ -42,13 +48,15 @@ const Navbar = () => {
               <Link className="text-[#3B4051] text-xl">Add A Toy</Link>
             </li>
             <li>
-              <Link className="btn text-white">Login</Link>
+              <Link to="/login" className="btn text-white">
+                Login
+              </Link>
             </li>
           </ul>
         </div>
         <div className="w-36 h-20 flex items-center">
           <img className="" src={logo} alt="" />
-          <Link className="text-4xl font-bold text-[#FF6224]">
+          <Link to="/" className="text-4xl font-bold text-[#FF6224]">
             Toy<span className="text-[#3B4051]">World</span>
           </Link>
         </div>
@@ -56,13 +64,19 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal  px-1">
           <li>
-            <Link className="text-[#3B4051] text-xl">Home</Link>
+            <Link to="/" className="text-[#3B4051] text-xl">
+              Home
+            </Link>
           </li>
           <li>
-            <Link className="text-[#3B4051] text-xl">All Toys</Link>
+            <Link to="/all-toys" className="text-[#3B4051] text-xl">
+              All Toys
+            </Link>
           </li>
           <li>
-            <Link className="text-[#3B4051] text-xl">Blogs</Link>
+            <Link to="/blogs" className="text-[#3B4051] text-xl">
+              Blogs
+            </Link>
           </li>
           <li>
             <Link className="text-[#3B4051] text-xl">My Toys</Link>
@@ -74,7 +88,10 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <div className="hidden lg:block">
-          <Link className="btn btn-secondary border-0 text-[#3B4051] font-bold bg-[#FF6224]">
+          <Link
+            to="/login"
+            className="btn btn-secondary border-0 text-white font-bold bg-[#05058a]"
+          >
             Login
           </Link>
         </div>

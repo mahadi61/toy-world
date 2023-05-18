@@ -106,7 +106,7 @@ const Banner = () => {
                 </h2>
               </div>
               <h1 className="font-extrabold text-center text-6xl lg:text-8xl">
-                One Big Box Toy
+                One Box Toy
               </h1>
               <span className="text-3xl my-2">
                 Flat 10% Of On Order Above %30.50
