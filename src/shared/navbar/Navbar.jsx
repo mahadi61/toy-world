@@ -8,7 +8,6 @@ import "./Navbar.css";
 const Navbar = () => {
   const { user, logOut, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  // console.log(user);
 
   const handleLogOut = () => {
     logOut()
@@ -62,14 +61,17 @@ const Navbar = () => {
             </li>
             <li>
               {user && (
-                <Link to="/my-toys" className="text-[#3B4051] text-xl">
+                <Link
+                  to={`/myToys/${user?.email}`}
+                  className="text-[#3B4051] text-xl"
+                >
                   My Toys
                 </Link>
               )}
             </li>
             <li>
               {user && (
-                <Link to="/add-toy" className="text-[#3B4051] text-xl">
+                <Link to="/addToys" className="text-[#3B4051] text-xl">
                   Add A Toy
                 </Link>
               )}
@@ -119,7 +121,10 @@ const Navbar = () => {
           </li>
           <li>
             {user && (
-              <Link to="/myToys" className="text-[#3B4051] text-xl">
+              <Link
+                to={`/myToys/${user?.email}`}
+                className="text-[#3B4051] text-xl"
+              >
                 My Toys
               </Link>
             )}

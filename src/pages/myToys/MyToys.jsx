@@ -1,4 +1,9 @@
+import { useLoaderData } from "react-router-dom";
+
 const MyToys = () => {
+  const myToysData = useLoaderData();
+  console.log(myToysData);
+
   return (
     <div>
       <div className="overflow-x-auto w-11/12 mx-auto my-4">
