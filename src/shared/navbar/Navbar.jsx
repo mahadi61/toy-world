@@ -118,10 +118,18 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            {user && <Link className="text-[#3B4051] text-xl">My Toys</Link>}
+            {user && (
+              <Link to="/myToys" className="text-[#3B4051] text-xl">
+                My Toys
+              </Link>
+            )}
           </li>
           <li>
-            {user && <Link className="text-[#3B4051] text-xl">Add A Toy</Link>}
+            {user && (
+              <Link to="/addToys" className="text-[#3B4051] text-xl">
+                Add A Toy
+              </Link>
+            )}
           </li>
         </ul>
       </div>

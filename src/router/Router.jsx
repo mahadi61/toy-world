@@ -8,6 +8,7 @@ import Home from "../pages/home/home/Home";
 import Login from "../pages/login/Login";
 import MyToys from "../pages/myToys/MyToys";
 import Signup from "../pages/signup/Signup";
+import ToyDetails from "../pages/toyDetails/ToyDetails";
 
 const router = createBrowserRouter([
   {
@@ -34,14 +35,20 @@ const router = createBrowserRouter([
       {
         path: "/all-toys",
         element: <AllToys></AllToys>,
+        loader: () => fetch("http://localhost:5000/toys"),
       },
       {
-        path: "/add-toy",
+        path: "/addToys",
         element: <AddToy></AddToy>,
       },
       {
-        path: "/my-toys",
+        path: "/myToys",
         element: <MyToys></MyToys>,
+      },
+      {
+        path: "/toy/:id",
+        element: <ToyDetails></ToyDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
       },
     ],
   },

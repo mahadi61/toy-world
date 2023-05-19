@@ -1,4 +1,8 @@
+import { useLoaderData } from "react-router-dom";
+import ToysRow from "./ToysRow";
+
 const AllToys = () => {
+  const toyData = useLoaderData();
   return (
     <div>
       <div className="overflow-x-auto w-11/12 mx-auto my-4">
@@ -15,17 +19,10 @@ const AllToys = () => {
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <th>
-                <button className="btn  btn-success">details</button>
-              </th>
-            </tr>
+            {/* rows */}
+            {toyData.map((toy) => (
+              <ToysRow key={toy._id} toy={toy}></ToysRow>
+            ))}
           </tbody>
         </table>
       </div>
