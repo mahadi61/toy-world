@@ -77,6 +77,21 @@ const Navbar = () => {
               )}
             </li>
             <li>
+              {user && (
+                <div
+                  className="tooltip tooltip-bottom"
+                  data-tip={user?.displayName}
+                >
+                  <img
+                    className="rounded-full mx-2"
+                    style={{ height: "40px", width: "40px" }}
+                    src={user?.photoURL}
+                    alt="user image"
+                  />
+                </div>
+              )}
+            </li>
+            <li>
               {user ? (
                 <button
                   onClick={handleLogOut}

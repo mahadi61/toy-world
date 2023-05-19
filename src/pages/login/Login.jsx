@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import car from "../../assets/animation/car-safety.json";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -10,6 +10,7 @@ const Login = () => {
   const { signInWithEmail, googleLogin, setObserverState } =
     useContext(AuthContext);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   //   login with email and password
   const handleLogin = (event) => {
@@ -17,15 +18,22 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
     if (password.length < 6) {
       return setError("Password must be six character.");
     }
     signInWithEmail(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
-
+        if (user) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Login Successful",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+          navigate("/");
+        }
         form.reset();
       })
       .catch((error) => {
@@ -47,7 +55,9 @@ const Login = () => {
             showConfirmButton: false,
             timer: 2000,
           });
+          navigate("/");
         }
+
         setObserverState(new Date().getTime());
       })
       .catch((error) => {
