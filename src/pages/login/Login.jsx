@@ -4,9 +4,12 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import car from "../../assets/animation/car-safety.json";
+import useHeaderName from "../../hooks/useHeaderName";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
+  useHeaderName("Login");
+
   const { signInWithEmail, googleLogin, setObserverState } =
     useContext(AuthContext);
   const [error, setError] = useState("");

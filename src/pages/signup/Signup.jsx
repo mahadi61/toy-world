@@ -6,8 +6,11 @@ import Swal from "sweetalert2";
 import car from "../../assets/animation/car-in-movement.json";
 
 import { AuthContext } from "../../provider/AuthProvider";
+import useHeaderName from "../../hooks/useHeaderName";
 
 const Signup = () => {
+  useHeaderName("Sign Up");
+
   const [error, setError] = useState("");
   const { singUpWithEmail, googleLogin, profileUpdate, setObserverState } =
     useContext(AuthContext);

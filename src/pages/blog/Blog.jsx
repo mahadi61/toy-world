@@ -1,9 +1,12 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
+import useHeaderName from "../../hooks/useHeaderName";
 
 AOS.init();
 
 const Blog = () => {
+  useHeaderName("Blog");
+
   return (
     <section>
       <div className="w-4/5 mx-auto ">

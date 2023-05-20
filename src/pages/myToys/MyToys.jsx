@@ -2,8 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 import MyToysRow from "./MyToysRow";
+import useHeaderName from "../../hooks/useHeaderName";
 
 const MyToys = () => {
+  useHeaderName("My Toys");
+
   const [myToysData, setMyToysDate] = useState([]);
   const { user } = useContext(AuthContext);
   // console.log(params.email);

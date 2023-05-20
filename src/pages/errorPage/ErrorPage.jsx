@@ -1,7 +1,10 @@
 import { Link, useRouteError } from "react-router-dom";
 import errorBanner from "../../assets/error-01.png";
+import useHeaderName from "../../hooks/useHeaderName";
 
 const ErrorPage = () => {
+  useHeaderName("Error");
+
   const { status, error, statusText } = useRouteError();
   return (
     <div className="flex flex-col items-center justify-center">

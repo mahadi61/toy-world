@@ -5,7 +5,7 @@ AOS.init();
 
 const BestSelling = () => {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <h1 className="text-center text-4xl my-5">Best Selling Cars</h1>
       <div
         className="hero min-h-screen "

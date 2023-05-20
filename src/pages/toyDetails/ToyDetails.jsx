@@ -1,7 +1,9 @@
 import { AiFillStar } from "react-icons/ai";
 import { useLoaderData } from "react-router-dom";
+import useHeaderName from "../../hooks/useHeaderName";
 
 const ToyDetails = () => {
+  useHeaderName("Toy Details");
   const singleToys = useLoaderData();
 
   const {
