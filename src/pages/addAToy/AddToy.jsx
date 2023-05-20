@@ -110,6 +110,7 @@ const AddToy = () => {
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               name="subCategory"
             >
+              <option value="select one">....</option>
               <option
                 value="Racing car"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
