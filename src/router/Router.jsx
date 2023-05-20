@@ -5,6 +5,7 @@ import AllToys from "../pages/allToys/AllToys";
 import Blog from "../pages/blog/Blog";
 import ErrorPage from "../pages/errorPage/ErrorPage";
 import Home from "../pages/home/home/Home";
+import UpdateToy from "../pages/home/updateToy/UpdateToy";
 import Login from "../pages/login/Login";
 import MyToys from "../pages/myToys/MyToys";
 import Signup from "../pages/signup/Signup";
@@ -54,6 +55,13 @@ const router = createBrowserRouter([
           </PrivetRoute>
         ),
       },
+      {
+        path: "/updateToy/:id",
+        element: <UpdateToy></UpdateToy>,
+        loader: ({ params }) =>
+          fetch(`https://toy-world-server-two.vercel.app/toy/${params.id}`),
+      },
+
       {
         path: "/toy/:id",
         element: (
