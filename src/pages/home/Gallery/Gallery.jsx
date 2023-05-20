@@ -9,7 +9,7 @@ const Gallery = () => {
       <h1 className="text-center text-4xl mb-4">Car Photo Gallery</h1>
       <div
         className="grid lg:grid-cols-4 grid-cols-1"
-        data-aos="fade-left"
+        data-aos="fade-up"
         data-aos-delay="50"
         data-aos-duration="1000"
         data-aos-easing="ease-in-out"

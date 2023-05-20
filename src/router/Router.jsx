@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       {
         path: "/all-toys",
         element: <AllToys></AllToys>,
-        loader: () => fetch("http://localhost:5000/toys"),
+        loader: () => fetch("https://toy-world-server-two.vercel.app/toys"),
       },
       {
         path: "/addToys",
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/myToys/:email",
+        path: "/myToys",
         element: (
           <PrivetRoute>
             <MyToys></MyToys>
@@ -61,7 +61,8 @@ const router = createBrowserRouter([
             <ToyDetails></ToyDetails>
           </PrivetRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://toy-world-server-two.vercel.app/toy/${params.id}`),
       },
     ],
   },

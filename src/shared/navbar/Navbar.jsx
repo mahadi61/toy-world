@@ -61,10 +61,7 @@ const Navbar = () => {
             </li>
             <li>
               {user && (
-                <Link
-                  to={`/myToys/${user?.email}`}
-                  className="text-[#3B4051] text-xl"
-                >
+                <Link to="/myToys" className="text-[#3B4051] text-xl">
                   My Toys
                 </Link>
               )}
@@ -136,10 +133,7 @@ const Navbar = () => {
           </li>
           <li>
             {user && (
-              <Link
-                to={`/myToys/${user?.email}`}
-                className="text-[#3B4051] text-xl"
-              >
+              <Link to="/myToys" className="text-[#3B4051] text-xl">
                 My Toys
               </Link>
             )}

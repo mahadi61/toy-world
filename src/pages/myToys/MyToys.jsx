@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 import MyToysRow from "./MyToysRow";
 
-const MyToys = ({ params }) => {
+const MyToys = () => {
   const [myToysData, setMyToysDate] = useState([]);
+  const { user } = useContext(AuthContext);
   // console.log(params.email);
   // get an error here try to solve next day
   useEffect(() => {
-    fetch(`http://localhost:5000/myToys/${params.email}`)
+    fetch(`https://toy-world-server-two.vercel.app/myToys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMyToysDate(data));
-  }, []);
+  }, [user]);
 
   return (
     <div>

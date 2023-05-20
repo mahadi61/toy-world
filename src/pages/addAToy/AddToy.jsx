@@ -30,7 +30,7 @@ const AddToy = () => {
       description: description,
     };
 
-    fetch("http://localhost:5000/addToy", {
+    fetch("https://toy-world-server-two.vercel.app/addToy", {
       method: "POST",
       headers: {
         "content-type": "application/json",
