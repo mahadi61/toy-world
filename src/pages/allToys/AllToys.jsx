@@ -1,15 +1,20 @@
-import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useEffect, useState } from "react";
 import ToysRow from "./ToysRow";
 
 const AllToys = () => {
-  const toyData = useLoaderData();
+  const [toyData, setToyData] = useState([]);
   const [searchText, seSearchText] = useState("");
+
+  useEffect(() => {
+    fetch("https://toy-world-server-two.vercel.app/toys")
+      .then((res) => res.json())
+      .then((data) => setToyData(data));
+  }, []);
 
   const handleSearch = () => {
     fetch(`http://localhost:5000/toys/${searchText}`)
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => setToyData(data));
   };
 
   return (
