@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import useHeaderName from "../../hooks/useHeaderName";
 import ToysRow from "./ToysRow";
 
 const AllToys = () => {
+  useHeaderName("All Toys");
+
   const [toyData, setToyData] = useState([]);
   const [searchText, seSearchText] = useState("");
 

@@ -1,3 +1,4 @@
+import useHeaderName from "../../../hooks/useHeaderName";
 import Gallery from "../Gallery/Gallery";
 import LatestCars from "../LatestCars/LatestCars";
 import Banner from "../banner/Banner";
@@ -5,6 +6,8 @@ import BestSelling from "../bestSelling/BestSelling";
 import CategoryShop from "../shopByCategory/CategoryShop";
 
 const Home = () => {
+  useHeaderName("Home");
+
   return (
     <div>
       <Banner></Banner>
