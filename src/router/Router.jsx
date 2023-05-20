@@ -9,6 +9,7 @@ import Login from "../pages/login/Login";
 import MyToys from "../pages/myToys/MyToys";
 import Signup from "../pages/signup/Signup";
 import ToyDetails from "../pages/toyDetails/ToyDetails";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -39,15 +40,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/addToys",
-        element: <AddToy></AddToy>,
+        element: (
+          <PrivetRoute>
+            <AddToy></AddToy>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/myToys/:email",
-        element: <MyToys></MyToys>,
+        element: (
+          <PrivetRoute>
+            <MyToys></MyToys>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/toy/:id",
-        element: <ToyDetails></ToyDetails>,
+        element: (
+          <PrivetRoute>
+            <ToyDetails></ToyDetails>
+          </PrivetRoute>
+        ),
         loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
       },
     ],

@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import car from "../../assets/animation/car-safety.json";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -11,7 +11,9 @@ const Login = () => {
     useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
 
+  const from = location.state?.from?.pathname || "/";
   //   login with email and password
   const handleLogin = (event) => {
     event.preventDefault();
@@ -32,7 +34,7 @@ const Login = () => {
             showConfirmButton: false,
             timer: 2000,
           });
-          navigate("/");
+          navigate(from, { replace: true });
         }
         form.reset();
       })
@@ -55,7 +57,7 @@ const Login = () => {
             showConfirmButton: false,
             timer: 2000,
           });
-          navigate("/");
+          navigate(from, { replace: true });
         }
 
         setObserverState(new Date().getTime());

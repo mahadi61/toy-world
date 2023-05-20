@@ -61,7 +61,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       return unsubscribe();
     };
-  }, [observerState]);
+  }, []);
 
   const authInfo = {
     singUpWithEmail,

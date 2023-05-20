@@ -8,7 +8,7 @@ const BestSelling = () => {
     <div>
       <h1 className="text-center text-4xl my-5">Best Selling Cars</h1>
       <div
-        className="hero min-h-screen"
+        className="hero min-h-screen "
         data-aos="flip-up"
         data-aos-delay="50"
         data-aos-duration="1000"
@@ -17,7 +17,7 @@ const BestSelling = () => {
         <div className="hero-content flex-col lg:flex-row">
           <img
             src="https://i.ibb.co/P5S3xDM/zip-01.png"
-            className="max-w-lg rounded-lg shadow-2xl"
+            className="lg:max-w-lg rounded-lg shadow-2xl"
           />
           <div>
             <h1 className="text-5xl font-bold">Blue Zip Car</h1>
@@ -36,7 +36,7 @@ const BestSelling = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
             src="https://i.ibb.co/1rf1DV3/white-privet-car-01.png"
-            className="max-w-lg rounded-lg shadow-2xl"
+            className="lg:max-w-lg rounded-lg shadow-2xl"
           />
           <div>
             <h1 className="text-5xl font-bold">White Privet Car</h1>
@@ -55,7 +55,7 @@ const BestSelling = () => {
         <div className="hero-content flex-col lg:flex-row">
           <img
             src="https://i.ibb.co/kXprqXL/red-01.png"
-            className="max-w-lg rounded-lg shadow-2xl"
+            className="lg:max-w-lg rounded-lg shadow-2xl"
           />
           <div>
             <h1 className="text-5xl font-bold">Red Racing Car</h1>
@@ -74,7 +74,7 @@ const BestSelling = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
             src="https://i.ibb.co/Jc4pjfC/yello-01.png"
-            className="max-w-lg rounded-lg shadow-2xl"
+            className="lg:max-w-lg rounded-lg shadow-2xl"
           />
           <div>
             <h1 className="text-5xl font-bold">Yellow Racing Car</h1>
