@@ -5,7 +5,7 @@ import CategoryCard from "./CategoryCard";
 
 const CategoryShop = () => {
   const [toyData, setToyData] = useState([]);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("Racing car");
 
   useEffect(() => {
     fetch(`https://toy-world-server-two.vercel.app/toyCategory/${category}`)
