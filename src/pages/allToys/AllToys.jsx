@@ -15,7 +15,7 @@ const AllToys = () => {
   }, []);
 
   const handleSearch = () => {
-    fetch(`https://toy-world-server-two.vercel.app/toys/${searchText}`)
+    fetch(`https://toy-world-server-two.vercel.app/searchToys/${searchText}`)
       .then((res) => res.json())
       .then((data) => setToyData(data));
   };

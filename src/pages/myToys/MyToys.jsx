@@ -13,7 +13,9 @@ const MyToys = () => {
   const [sortValue, setSortValue] = useState(1);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myToys?email=${user.email}&sort=${sortValue}`)
+    fetch(
+      `https://toy-world-server-two.vercel.app/myToys?email=${user?.email}&sort=${sortValue}`
+    )
       .then((res) => res.json())
       .then((data) => setMyToysDate(data));
   }, [user, sortValue]);

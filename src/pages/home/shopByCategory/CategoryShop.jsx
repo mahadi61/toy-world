@@ -8,7 +8,7 @@ const CategoryShop = () => {
   const [category, setCategory] = useState("");
 
   useEffect(() => {
-    fetch(`https://toy-world-server-two.vercel.app/toys/${category}`)
+    fetch(`https://toy-world-server-two.vercel.app/toyCategory/${category}`)
       .then((res) => res.json())
       .then((data) => setToyData(data));
   }, [category]);
