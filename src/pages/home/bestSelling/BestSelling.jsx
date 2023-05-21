@@ -27,7 +27,7 @@ const BestSelling = () => {
       </div>
       <div
         className="hero min-h-screen"
-        data-aos="fade-down-right"
+        data-aos="flip-up"
         data-aos-delay="50"
         data-aos-duration="1000"
       >
@@ -45,7 +45,7 @@ const BestSelling = () => {
       </div>
       <div
         className="hero min-h-screen"
-        data-aos="fade-right"
+        data-aos="flip-up"
         data-aos-delay="50"
         data-aos-duration="1000"
       >

@@ -20,15 +20,6 @@ const LatestCars = () => {
         Latest Cars Updated On Last Month
       </h1>
       <Swiper
-        // breakpoints={{
-        //   0: {
-        //     slidesPerView: 1,
-        //   },
-        //   300: {
-        //     // width: 576,
-        //     slidesPerView: 1,
-        //   },
-        // }}
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={10}
         slidesPerView={3}
