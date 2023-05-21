@@ -14,7 +14,6 @@ const LatestCars = () => {
       data-aos="flip-up"
       data-aos-delay="50"
       data-aos-duration="2000"
-      data-aos-easing="ease-in-out"
     >
       <h1 className="text-center text-4xl my-5">
         Latest Cars Updated On Last Month

@@ -34,7 +34,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar bg-gradient-to-r from-[#FED54A]  to-[#FF9347] ">
+    <nav className="navbar bg-gradient-to-r from-[#867AE9]  to-[#FF9347] ">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className=" text-4xl lg:hidden">
@@ -117,30 +117,30 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal  px-1">
           <li>
-            <Link to="/" className="text-[#3B4051] text-xl">
+            <Link to="/" className="text-[#ffffff] font-bold text-xl">
               Home
             </Link>
           </li>
           <li>
-            <Link to="/all-toys" className="text-[#3B4051] text-xl">
+            <Link to="/all-toys" className="text-[#ffffff] font-bold text-xl">
               All Toys
             </Link>
           </li>
           <li>
-            <Link to="/blogs" className="text-[#3B4051] text-xl">
+            <Link to="/blogs" className="text-[#ffffff] font-bold text-xl">
               Blogs
             </Link>
           </li>
           <li>
             {user && (
-              <Link to="/myToys" className="text-[#3B4051] text-xl">
+              <Link to="/myToys" className="text-[#ffffff] font-bold text-xl">
                 My Toys
               </Link>
             )}
           </li>
           <li>
             {user && (
-              <Link to="/addToys" className="text-[#3B4051] text-xl">
+              <Link to="/addToys" className="text-[#ffffff] font-bold text-xl">
                 Add A Toy
               </Link>
             )}

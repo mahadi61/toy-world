@@ -10,9 +10,8 @@ const Gallery = () => {
       <div
         className="grid lg:grid-cols-4 grid-cols-1"
         data-aos="fade-down"
-        data-aos-delay="50"
+        data-aos-delay="40"
         data-aos-duration="1000"
-        data-aos-easing="ease-in-out"
       >
         <img src="https://i.ibb.co/56cVPFs/red-racing-car-01.png" alt="" />
         <img src="https://i.ibb.co/dBxfsBp/red-big-truck-01.png" alt="" />

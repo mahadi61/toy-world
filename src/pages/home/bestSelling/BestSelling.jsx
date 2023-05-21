@@ -10,8 +10,8 @@ const BestSelling = () => {
       <div
         className="hero min-h-screen "
         data-aos="fade-down-left"
-        data-aos-delay="10"
-        data-aos-duration="1000"
+        data-aos-delay="50"
+        data-aos-duration="2000"
       >
         <div className="hero-content flex-col lg:flex-row">
           <img
@@ -29,7 +29,7 @@ const BestSelling = () => {
         className="hero min-h-screen"
         data-aos="flip-up"
         data-aos-delay="50"
-        data-aos-duration="1000"
+        data-aos-duration="2000"
       >
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
@@ -47,7 +47,7 @@ const BestSelling = () => {
         className="hero min-h-screen"
         data-aos="flip-up"
         data-aos-delay="50"
-        data-aos-duration="1000"
+        data-aos-duration="2000"
       >
         <div className="hero-content flex-col lg:flex-row">
           <img
@@ -65,7 +65,7 @@ const BestSelling = () => {
         className="hero min-h-screen"
         data-aos="flip-up"
         data-aos-delay="50"
-        data-aos-duration="1000"
+        data-aos-duration="2000"
       >
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
