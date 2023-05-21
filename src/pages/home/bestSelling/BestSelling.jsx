@@ -9,7 +9,7 @@ const BestSelling = () => {
       <h1 className="text-center text-4xl my-5">Best Selling Cars</h1>
       <div
         className="hero min-h-screen "
-        data-aos="flip-up"
+        data-aos="flip-left"
         data-aos-delay="50"
         data-aos-duration="1000"
       >
