@@ -29,7 +29,7 @@ const UpdateToy = () => {
       description: description,
     };
 
-    fetch(`http://localhost:5000/updateToy/${_id}`, {
+    fetch(`https://toy-world-server-two.vercel.app/updateToy/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

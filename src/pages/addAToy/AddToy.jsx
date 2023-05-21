@@ -20,14 +20,14 @@ const AddToy = () => {
     const rating = form.rating.value;
     const quantity = form.quantity.value;
     const description = form.description.value;
-
+    // console.log(typeof Number(price));
     const toyInfo = {
       toyName: toyName,
       photoUrl: photo,
       sellerName: seller,
       sellerEmail: email,
       category: subCategory,
-      price: price,
+      price: Number(price),
       rating: rating,
       quantity: quantity,
       description: description,
@@ -113,7 +113,6 @@ const AddToy = () => {
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               name="subCategory"
             >
-              <option value="select one">....</option>
               <option
                 value="Racing car"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"

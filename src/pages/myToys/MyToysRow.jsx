@@ -8,7 +8,7 @@ const MyToysRow = ({ toyData, handleDelete }) => {
       <td>{sellerName}</td>
       <td>{toyName}</td>
       <td>{category}</td>
-      <td>{price}</td>
+      <td>${price}</td>
       <td>{quantity}</td>
       <td>
         <Link to={`/updateToy/${_id}`} className="btn btn-success">
