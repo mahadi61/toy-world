@@ -1,7 +1,7 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-AOS.init();
+AOS.init({ multiple: true });
 
 const BestSelling = () => {
   return (
@@ -9,8 +9,8 @@ const BestSelling = () => {
       <h1 className="text-center text-4xl my-5">Best Selling Cars</h1>
       <div
         className="hero min-h-screen "
-        data-aos="flip-left"
-        data-aos-delay="50"
+        data-aos="fade-down-left"
+        data-aos-delay="10"
         data-aos-duration="1000"
       >
         <div className="hero-content flex-col lg:flex-row">
@@ -27,7 +27,7 @@ const BestSelling = () => {
       </div>
       <div
         className="hero min-h-screen"
-        data-aos="flip-up"
+        data-aos="fade-down-right"
         data-aos-delay="50"
         data-aos-duration="1000"
       >
@@ -45,7 +45,7 @@ const BestSelling = () => {
       </div>
       <div
         className="hero min-h-screen"
-        data-aos="flip-up"
+        data-aos="fade-right"
         data-aos-delay="50"
         data-aos-duration="1000"
       >
